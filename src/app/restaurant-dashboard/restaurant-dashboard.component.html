@@ -1,0 +1,116 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container">
+        <h2>Restaurant Records App</h2>
+        <div class="d-flex">
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AddModal">Add Restaurant</button>
+        </div>
+    </div>
+  </nav>
+  <div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container">
+      <h1 class="display-5 fw-bold">Restaurant Record Management</h1>
+      <p class="col-md-8 fs-4">You can save records of Restaurants using Angular 14.</p>
+    </div>
+  </div>
+  <!-- Records Table -->
+  
+  <table class="table mt-4">
+    <thead>
+        <tr>
+            <td scope="col">Restaurant Id</td>
+            <td scope="col">Name</td>
+            <td scope="col">Email</td>
+            <td scope="col">Mobile</td>
+            <td scope="col">Address</td>
+            <td scope="col">Service</td>
+            <td scope="col">Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of restaurants">
+            <td>1</td>
+            <td>{{item}}</td>
+            <td>bradmani@gmail.com</td>
+            <td>+923354279226</td>
+            <td>Lahori Muhall Larkana</td>
+            <td>Chai & Coffee</td>
+            <td>
+                <button class="btn btn-info">Edit</button>&nbsp;
+                <button class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+  <!-- Modal -->
+<div class="modal fade" id="AddModal" tabindex="-1" aria-labelledby="AddModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Restaurant</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="addForm">
+                <div class="mb-3">
+                  <input type="text" formControlName="name" class="form-control" placeholder="Name">
+                </div>
+                <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="Email">
+                </div>
+                <div class="mb-3">
+                    <input type="number" class="form-control" placeholder="Mobile">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Address">
+                </div>
+                <h6>Services</h6>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Coffee</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck2">
+                            <label class="form-check-label" for="exampleCheck2">Fast food</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck3">
+                            <label class="form-check-label" for="exampleCheck3">Cold Drinks</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck4">
+                            <label class="form-check-label" for="exampleCheck4">Hi Tea</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck5">
+                            <label class="form-check-label" for="exampleCheck5">Biryani</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck6">
+                            <label class="form-check-label" for="exampleCheck6">Mutton</label>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Add New Restaurant</button>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
